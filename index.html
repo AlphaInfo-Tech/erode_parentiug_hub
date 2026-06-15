@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Erode Parenting Hub — Raising Erode, Together</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Work+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FBF5E9;
+    --turmeric:#E0A526;
+    --turmeric-deep:#C8860F;
+    --terracotta:#B5481E;
+    --ink:#34301F;
+    --clay-light:#F4D9BD;
+    --leaf:#5C7A52;
+    --paper-line: rgba(52,48,31,0.12);
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    font-weight:400;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  img, svg{display:block;max-width:100%;}
+
+  a{color:inherit;}
+
+  .wrap{
+    max-width:1100px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  /* ===== Stamp signature element ===== */
+  .stamp{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    text-align:center;
+    border:2px solid currentColor;
+    border-radius:50%;
+    font-family:'Space Mono', monospace;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    line-height:1.25;
+    padding:6px;
+  }
+  .stamp::before, .stamp::after{content:none;}
+
+  /* ===== Header ===== */
+  .site-header{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(251,245,233,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--paper-line);
+  }
+  .nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:16px 24px;
+  }
+  .nav-mark{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    font-size:1.15rem;
+    text-decoration:none;
+    color:var(--ink);
+  }
+  .nav-mark .stamp{
+    width:38px;height:38px;
+    color:var(--terracotta);
+    font-size:0.5rem;
+    font-weight:700;
+    transform:rotate(-6deg);
+  }
+  .nav-links{
+    display:flex;
+    gap:28px;
+    list-style:none;
+    font-size:0.95rem;
+  }
+  .nav-links a{
+    text-decoration:none;
+    position:relative;
+    padding-bottom:4px;
+  }
+  .nav-links a:hover{color:var(--terracotta);}
+  .nav-cta{
+    background:var(--leaf);
+    color:var(--cream);
+    text-decoration:none;
+    padding:9px 20px;
+    border-radius:999px;
+    font-size:0.9rem;
+    font-weight:500;
+    white-space:nowrap;
+    transition:background 0.2s ease;
+  }
+  .nav-cta:hover{background:#4a6442;}
+  .nav-toggle{display:none;}
+
+  @media (max-width:760px){
+    .nav-links{display:none;}
+    .nav-cta{padding:8px 16px;font-size:0.85rem;}
+  }
+
+  /* ===== Hero ===== */
+  .hero{
+    padding:72px 0 56px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.3fr 0.7fr;
+    gap:48px;
+    align-items:center;
+  }
+  .eyebrow{
+    font-family:'Space Mono', monospace;
+    text-transform:uppercase;
+    letter-spacing:0.18em;
+    font-size:0.78rem;
+    color:var(--terracotta);
+    margin-bottom:18px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:28px;height:2px;
+    background:var(--terracotta);
+    display:inline-block;
+  }
+  .hero h1{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:clamp(2.6rem, 6vw, 4.6rem);
+    line-height:1.05;
+    letter-spacing:-0.01em;
+  }
+  .hero h1 em{
+    font-style:italic;
+    color:var(--terracotta);
+    position:relative;
+  }
+  .hero-sub{
+    margin-top:22px;
+    font-size:1.1rem;
+    max-width:46ch;
+    color:#5a5640;
+  }
+  .hero-actions{
+    margin-top:34px;
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+  .btn{
+    text-decoration:none;
+    font-weight:500;
+    padding:14px 28px;
+    border-radius:999px;
+    font-size:0.98rem;
+    transition:transform 0.15s ease, box-shadow 0.15s ease;
+    display:inline-block;
+  }
+  .btn-primary{
+    background:var(--terracotta);
+    color:var(--cream);
+  }
+  .btn-secondary{
+    background:transparent;
+    color:var(--ink);
+    border:1.5px solid var(--ink);
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary:hover{box-shadow:0 6px 18px rgba(181,72,30,0.35);}
+
+  .hero-stamp-col{
+    display:flex;
+    justify-content:center;
+  }
+  .hero-stamp{
+    width:230px;height:230px;
+    color:var(--turmeric-deep);
+    border-width:3px;
+    transform:rotate(8deg);
+    font-size:0.85rem;
+    gap:6px;
+    background:var(--clay-light);
+  }
+  .hero-stamp .big-num{
+    font-family:'Fraunces', serif;
+    font-size:2.6rem;
+    font-weight:700;
+    line-height:1;
+    color:var(--terracotta);
+  }
+  .hero-stamp .small-cap{
+    font-size:0.62rem;
+    letter-spacing:0.12em;
+  }
+
+  @media (max-width:820px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-stamp-col{order:-1;justify-content:flex-start;}
+    .hero-stamp{width:160px;height:160px;font-size:0.65rem;}
+    .hero-stamp .big-num{font-size:2rem;}
+  }
+
+  /* ===== Section shared ===== */
+  section{padding:72px 0;}
+  .section-head{
+    max-width:60ch;
+    margin-bottom:44px;
+  }
+  .section-head .eyebrow{margin-bottom:14px;}
+  .section-head h2{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:clamp(1.8rem, 4vw, 2.7rem);
+    line-height:1.15;
+  }
+  .section-head p{
+    margin-top:14px;
+    color:#5a5640;
+    font-size:1.02rem;
+  }
+
+  /* ===== About ===== */
+  .about{
+    background:var(--ink);
+    color:var(--cream);
+  }
+  .about .eyebrow{color:var(--turmeric);}
+  .about .eyebrow::before{background:var(--turmeric);}
+  .about .section-head p{color:#cfc9b8;}
+  .pillars{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:28px;
+  }
+  .pillar{
+    border:1px solid rgba(251,245,233,0.18);
+    border-radius:18px;
+    padding:28px;
+  }
+  .pillar .stamp{
+    width:54px;height:54px;
+    color:var(--turmeric);
+    font-size:0.5rem;
+    margin-bottom:18px;
+  }
+  .pillar h3{
+    font-family:'Fraunces', serif;
+    font-size:1.25rem;
+    font-weight:600;
+    margin-bottom:10px;
+  }
+  .pillar p{
+    color:#cfc9b8;
+    font-size:0.95rem;
+  }
+  @media (max-width:760px){
+    .pillars{grid-template-columns:1fr;}
+  }
+
+  /* ===== Events ===== */
+  .events-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:24px;
+  }
+  .event-card{
+    background:#fff;
+    border:1px solid var(--paper-line);
+    border-radius:18px;
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+  }
+  .event-date{
+    background:var(--turmeric);
+    color:var(--ink);
+    font-family:'Space Mono', monospace;
+    font-size:0.78rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    padding:10px 20px;
+  }
+  .event-body{padding:24px;flex:1;display:flex;flex-direction:column;}
+  .event-body h3{
+    font-family:'Fraunces', serif;
+    font-size:1.2rem;
+    font-weight:600;
+    margin-bottom:8px;
+  }
+  .event-body p{font-size:0.92rem;color:#5a5640;flex:1;}
+  .event-tag{
+    margin-top:16px;
+    font-family:'Space Mono', monospace;
+    font-size:0.72rem;
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    color:var(--leaf);
+  }
+  @media (max-width:900px){
+    .events-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:620px){
+    .events-grid{grid-template-columns:1fr;}
+  }
+
+  /* ===== Resources ===== */
+  .resources{background:var(--clay-light);}
+  .res-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:20px;
+  }
+  .res-card{
+    background:var(--cream);
+    border-radius:16px;
+    padding:24px;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    min-height:180px;
+  }
+  .res-card .stamp{
+    width:40px;height:40px;
+    color:var(--terracotta);
+    font-size:0.42rem;
+    align-self:flex-start;
+  }
+  .res-card h3{
+    font-family:'Fraunces', serif;
+    font-size:1.05rem;
+    font-weight:600;
+  }
+  .res-card p{font-size:0.88rem;color:#5a5640;}
+  @media (max-width:900px){
+    .res-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:560px){
+    .res-grid{grid-template-columns:1fr;}
+  }
+
+  /* ===== Journey timeline ===== */
+  .journey-line{
+    border-left:2px dashed var(--terracotta);
+    padding-left:32px;
+    display:flex;
+    flex-direction:column;
+    gap:36px;
+  }
+  .journey-item{position:relative;}
+  .journey-item::before{
+    content:"";
+    position:absolute;
+    left:-39px;
+    top:4px;
+    width:14px;height:14px;
+    border-radius:50%;
+    background:var(--turmeric);
+    border:2px solid var(--cream);
+    box-shadow:0 0 0 2px var(--terracotta);
+  }
+  .journey-item .yr{
+    font-family:'Space Mono', monospace;
+    font-size:0.8rem;
+    color:var(--terracotta);
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+  }
+  .journey-item h3{
+    font-family:'Fraunces', serif;
+    font-size:1.2rem;
+    font-weight:600;
+    margin:6px 0 6px;
+  }
+  .journey-item p{font-size:0.95rem;color:#5a5640;max-width:60ch;}
+
+  /* ===== Join / Contact ===== */
+  .join{
+    background:var(--terracotta);
+    color:var(--cream);
+  }
+  .join .section-head h2{color:var(--cream);}
+  .join .section-head p{color:#f6ddd1;}
+  .join-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+  }
+  .link-list{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+  .link-card{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background:rgba(251,245,233,0.08);
+    border:1px solid rgba(251,245,233,0.25);
+    border-radius:14px;
+    padding:18px 22px;
+    text-decoration:none;
+    color:var(--cream);
+    transition:background 0.2s ease;
+  }
+  .link-card:hover{background:rgba(251,245,233,0.16);}
+  .link-card .name{font-weight:600;font-size:1.02rem;}
+  .link-card .desc{font-size:0.85rem;color:#f6ddd1;}
+  .link-card .arrow{font-family:'Space Mono', monospace;}
+
+  .contact-form{
+    background:var(--cream);
+    color:var(--ink);
+    border-radius:18px;
+    padding:28px;
+  }
+  .contact-form h3{
+    font-family:'Fraunces', serif;
+    font-size:1.3rem;
+    font-weight:600;
+    margin-bottom:18px;
+  }
+  .field{margin-bottom:16px;}
+  .field label{
+    display:block;
+    font-size:0.82rem;
+    font-family:'Space Mono', monospace;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    margin-bottom:6px;
+    color:#5a5640;
+  }
+  .field input, .field textarea{
+    width:100%;
+    border:1px solid var(--paper-line);
+    border-radius:10px;
+    padding:12px 14px;
+    font-family:'Work Sans', sans-serif;
+    font-size:0.95rem;
+    background:#fff;
+    color:var(--ink);
+  }
+  .field textarea{resize:vertical;min-height:90px;}
+  .field input:focus, .field textarea:focus{
+    outline:2px solid var(--terracotta);
+    outline-offset:1px;
+  }
+  .form-submit{
+    background:var(--terracotta);
+    color:var(--cream);
+    border:none;
+    padding:14px 28px;
+    border-radius:999px;
+    font-size:0.98rem;
+    font-weight:500;
+    cursor:pointer;
+    width:100%;
+  }
+  .form-submit:hover{background:#9c3c18;}
+  .form-note{font-size:0.8rem;color:#8a8467;margin-top:10px;}
+
+  @media (max-width:820px){
+    .join-grid{grid-template-columns:1fr;}
+  }
+
+  /* ===== Footer ===== */
+  .site-footer{
+    padding:40px 0;
+    border-top:1px solid var(--paper-line);
+  }
+  .footer-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:16px;
+    font-size:0.85rem;
+    color:#8a8467;
+  }
+  .footer-row .nav-mark{font-size:1rem;}
+
+  /* ===== Reduced motion ===== */
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .btn:hover{transform:none;}
+  }
+
+  /* ===== Featured event (FunFest) ===== */
+  .featured{
+    background:var(--ink);
+    color:var(--cream);
+  }
+  .featured .eyebrow{color:var(--turmeric);}
+  .featured .eyebrow::before{background:var(--turmeric);}
+  .featured-grid{
+    display:grid;
+    grid-template-columns:1.4fr 0.6fr;
+    gap:48px;
+    align-items:center;
+  }
+  .featured h2{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:clamp(2rem, 5vw, 3.4rem);
+    line-height:1.1;
+  }
+  .featured-tamil{
+    font-size:1.05rem;
+    color:var(--turmeric);
+    margin-top:10px;
+    font-weight:500;
+  }
+  .featured-sub{
+    margin-top:18px;
+    color:#cfc9b8;
+    font-size:1.02rem;
+    max-width:56ch;
+  }
+  .feature-list{
+    margin-top:24px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    font-size:0.98rem;
+  }
+  .feature-list li{list-style:none;}
+  .chip-row{
+    margin-top:28px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .chip{
+    font-family:'Space Mono', monospace;
+    font-size:0.78rem;
+    letter-spacing:0.04em;
+    border:1px solid rgba(251,245,233,0.3);
+    border-radius:999px;
+    padding:8px 16px;
+    color:var(--cream);
+  }
+  .chip-free{
+    background:var(--turmeric);
+    color:var(--ink);
+    border-color:var(--turmeric);
+    font-weight:700;
+  }
+  .featured-stamp-col{display:flex;justify-content:center;}
+  .featured-stamp{
+    width:200px;height:200px;
+    color:var(--turmeric);
+    border-color:var(--turmeric);
+    background:rgba(224,165,38,0.08);
+    transform:rotate(-7deg);
+    font-size:0.8rem;
+    gap:4px;
+  }
+  .featured-stamp .big-num{
+    font-family:'Fraunces', serif;
+    font-size:2.2rem;
+    font-weight:700;
+    color:var(--turmeric);
+    line-height:1;
+  }
+  @media (max-width:820px){
+    .featured-grid{grid-template-columns:1fr;}
+    .featured-stamp-col{order:-1;justify-content:flex-start;}
+    .featured-stamp{width:140px;height:140px;font-size:0.6rem;}
+    .featured-stamp .big-num{font-size:1.6rem;}
+  }
+
+  /* ===== Competitions ===== */
+  .comp-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+  }
+  .comp-card{
+    background:#fff;
+    border:1px solid var(--paper-line);
+    border-radius:18px;
+    padding:26px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+  .comp-card .stamp{
+    width:48px;height:48px;
+    color:var(--leaf);
+    font-size:0.4rem;
+  }
+  .comp-card h3{
+    font-family:'Fraunces', serif;
+    font-size:1.18rem;
+    font-weight:600;
+  }
+  .comp-card p{font-size:0.9rem;color:#5a5640;}
+  .comp-meta{
+    margin-top:auto;
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+    font-family:'Space Mono', monospace;
+    font-size:0.78rem;
+    color:var(--terracotta);
+  }
+  @media (max-width:900px){.comp-grid{grid-template-columns:1fr 1fr;}}
+  @media (max-width:620px){.comp-grid{grid-template-columns:1fr;}}
+
+  /* ===== Stalls / Sponsors directory ===== */
+  .stalls{background:var(--clay-light);}
+  .stall-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+  }
+  .stall-card{
+    background:var(--cream);
+    border-radius:14px;
+    padding:20px;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+  .stall-no{
+    font-family:'Space Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.1em;
+    color:var(--terracotta);
+    text-transform:uppercase;
+  }
+  .stall-card h3{
+    font-family:'Fraunces', serif;
+    font-size:1.02rem;
+    font-weight:600;
+  }
+  .stall-card p{font-size:0.84rem;color:#5a5640;}
+  @media (max-width:900px){.stall-grid{grid-template-columns:1fr 1fr;}}
+  @media (max-width:560px){.stall-grid{grid-template-columns:1fr;}}
+
+  /* ===== Sponsor CTA ===== */
+  .sponsor-cta{
+    background:var(--leaf);
+    color:var(--cream);
+  }
+  .sponsor-cta .eyebrow{color:var(--cream);}
+  .sponsor-cta .eyebrow::before{background:var(--cream);}
+  .sponsor-cta .section-head h2{color:var(--cream);}
+  .sponsor-cta .section-head p{color:#e2ead9;}
+  .sponsor-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+    align-items:center;
+  }
+  .sponsor-list{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    font-size:0.95rem;
+  }
+  .sponsor-list li{list-style:none;}
+  .sponsor-call{
+    background:rgba(251,245,233,0.1);
+    border:1px solid rgba(251,245,233,0.3);
+    border-radius:16px;
+    padding:28px;
+    text-align:center;
+  }
+  .sponsor-call .phone{
+    font-family:'Fraunces', serif;
+    font-size:1.8rem;
+    font-weight:700;
+    margin:12px 0;
+    display:block;
+    text-decoration:none;
+    color:var(--cream);
+  }
+  @media (max-width:820px){.sponsor-grid{grid-template-columns:1fr;}}
+
+  :focus-visible{outline:2px solid var(--terracotta);outline-offset:2px;}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav wrap">
+    <a href="#top" class="nav-mark">
+      <span class="stamp">EPH<br>EST.</span>
+      Erode Parenting Hub
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#funfest">FunFest 2026</a></li>
+      <li><a href="#resources">Resources</a></li>
+      <li><a href="#journey">Our Journey</a></li>
+    </ul>
+    <a class="nav-cta" href="#join">Join the Hub</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">A parenting community in Erode</p>
+        <h1>Raising Erode's<br>children, <em>together</em>.</h1>
+        <p class="hero-sub">EPH brings parents, doctors, teachers and local families together — through real meetups, honest advice, and a support group that's always one message away.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#join">Join our WhatsApp group</a>
+          <a class="btn btn-secondary" href="#events">See upcoming events</a>
+        </div>
+      </div>
+      <div class="hero-stamp-col">
+        <div class="stamp hero-stamp">
+          <span class="big-num">10K+</span>
+          <span class="small-cap">Parents in our<br>community</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">What we do</p>
+        <h2>Support, information, and a place to belong.</h2>
+        <p>EPH started with empty chairs and quiet rooms. Today it's a network of parents helping each other through every stage — from newborn nights to school admissions to teenage years.</p>
+      </div>
+      <div class="pillars">
+        <div class="pillar">
+          <div class="stamp">TALK</div>
+          <h3>Peer support groups</h3>
+          <p>WhatsApp and Facebook groups where parents ask questions, share experiences, and get answered by real people — day or night.</p>
+        </div>
+        <div class="pillar">
+          <div class="stamp">LEARN</div>
+          <h3>Expert sessions</h3>
+          <p>Visits and talks with local pediatricians, counsellors and educators — bringing trusted, local expertise to every parent.</p>
+        </div>
+        <div class="pillar">
+          <div class="stamp">MEET</div>
+          <h3>Community events</h3>
+          <p>Carnivals, fun fests and celebrations that bring families together offline — because parenting feels lighter in good company.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="events">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">What's coming up</p>
+        <h2>Events &amp; meetups</h2>
+        <p>From festive carnivals to expert talks — here's what's happening in the Hub this season.</p>
+      </div>
+      <div class="events-grid">
+        <article class="event-card">
+          <div class="event-date">Dec · Christmas Carnival</div>
+          <div class="event-body">
+            <h3>Magical Christmas Carnival</h3>
+            <p>Games, crafts and festive fun for kids and families — a chance to meet other EPH parents in person.</p>
+            <span class="event-tag">Family event</span>
+          </div>
+        </article>
+        <article class="event-card">
+          <div class="event-date">Annual · FunFest</div>
+          <div class="event-body">
+            <h3>FunFest, with Hyblis</h3>
+            <p>Our biggest community gathering of the year — activities, stalls and surprises for every age group.</p>
+            <span class="event-tag">Community fest</span>
+          </div>
+        </article>
+        <article class="event-card">
+          <div class="event-date">Anniversary</div>
+          <div class="event-body">
+            <h3>EPH Anniversary Celebration</h3>
+            <p>Marking another year together at Helping Hearts Trust — looking back at how far this community has come.</p>
+            <span class="event-tag">Celebration</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="featured" id="funfest">
+    <div class="wrap featured-grid">
+      <div>
+        <p class="eyebrow">Erode, are you ready?</p>
+        <h2>Fun Fest Thiruvizha 2026<br>— 5th Edition</h2>
+        <p class="featured-tamil">நம் பாரம்பரியம்… நம் பெருமை…</p>
+        <p class="featured-sub">Two spectacular days of culture, shopping, food, performances, games and creativity — Erode's most awaited family celebration, made possible by our incredible sponsors and partners.</p>
+        <ul class="feature-list">
+          <li>🎭 Experience the charm of a traditional Thiruvizha</li>
+          <li>🛍️ Shop from unique brands &amp; local entrepreneurs</li>
+          <li>🍴 Relish delicious food and festive treats</li>
+          <li>🎨 Workshops, activities &amp; entertainment for kids</li>
+          <li>🎶 Vibrant performances throughout the festival</li>
+          <li>🎉 Celebrate together with family and friends</li>
+        </ul>
+        <div class="chip-row">
+          <span class="chip">📅 June 20 &amp; 21, 2026</span>
+          <span class="chip">⏰ 10 AM – 9 PM</span>
+          <span class="chip">📍 Playzo 33, Kumalankuttai, Erode</span>
+          <span class="chip chip-free">FREE ENTRY</span>
+        </div>
+      </div>
+      <div class="featured-stamp-col">
+        <div class="stamp featured-stamp">
+          <span class="big-num">5th</span>
+          <span class="small-cap">Edition<br>Thiruvizha</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="competitions">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">For the little ones</p>
+        <h2>Kids' competitions at Thiruvizha</h2>
+        <p>Three stages for children to celebrate creativity, culture and confidence — register before the deadlines below.</p>
+      </div>
+      <div class="comp-grid">
+        <div class="comp-card">
+          <div class="stamp">WALK</div>
+          <h3>கிராமத்து Kutty Stars — Kids Fashion Show</h3>
+          <p>Theme: Village Vibes 🏡. Kids walk the ramp in traditional village-inspired attire, showcasing confidence and heritage.</p>
+          <div class="comp-meta">
+            <span>Age 3–8 years</span>
+            <span>21 June 2026, 5:30 PM</span>
+            <span>Entry ₹250</span>
+          </div>
+        </div>
+        <div class="comp-card">
+          <div class="stamp">ART</div>
+          <h3>Kids Drawing Competition</h3>
+          <p>Bring the colours of Thiruvizha, traditions and festive joy to life — categories for every age group, with prizes and certificates for all.</p>
+          <div class="comp-meta">
+            <span>Ages 3–5 · 6–8 · 9–12</span>
+            <span>21 June 2026, from 10:30 AM</span>
+            <span>Entry ₹199 · Register by 17 June</span>
+          </div>
+        </div>
+        <div class="comp-card">
+          <div class="stamp">KOLAM</div>
+          <h3>Fun Fest கோலத் திருவிழா</h3>
+          <p>Celebrate tradition with vibrant kolam art. Teams of 2, 6×6 ft kolam, 1 hour to create — open to all ages, no age limit.</p>
+          <div class="comp-meta">
+            <span>20 June 2026, 4:30 PM</span>
+            <span>Entry ₹250 per team</span>
+            <span>Register: 96007 52092</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stalls" id="stalls">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Shop the festival</p>
+        <h2>Sponsors &amp; stalls</h2>
+        <p>Meet the brands and entrepreneurs joining FunFest Thiruvizha 2026 at Playzo 33, Kumalankuttai — June 20 &amp; 21, 10 AM–9 PM.</p>
+      </div>
+      <div class="stall-grid">
+        <div class="stall-card">
+          <span class="stall-no">Associate sponsor</span>
+          <h3>Nikaa Apparels</h3>
+          <p>Contemporary pure cotton wear — salwars, co-ord sets, kurtis, maxis &amp; nightwear, designed in Erode.</p>
+        </div>
+        <div class="stall-card">
+          <span class="stall-no">Stall D7</span>
+          <h3>Twinkle Threads</h3>
+          <p>Soft fabrics for little ones — touch, feel and shop for your kids.</p>
+        </div>
+        <div class="stall-card">
+          <span class="stall-no">Stall B10</span>
+          <h3>AR Dreamweave</h3>
+          <p>Pure cotton bedspreads, quilts, dohars and handcrafted bags — comfort woven with culture.</p>
+        </div>
+        <div class="stall-card">
+          <span class="stall-no">Stall A1</span>
+          <h3>Daily Daily</h3>
+          <p>Plant-based, baby-safe cleaning products made with natural ingredients.</p>
+        </div>
+        <div class="stall-card">
+          <span class="stall-no">Stall B7</span>
+          <h3>Eilaa</h3>
+          <p>Elegant, comfortable fashion for women — style with confidence.</p>
+        </div>
+        <div class="stall-card">
+          <span class="stall-no">Stall D4</span>
+          <h3>Nalludai Apparels</h3>
+          <p>Collections to explore with the whole family — come meet the team.</p>
+        </div>
+        <div class="stall-card">
+          <span class="stall-no">Stall C7</span>
+          <h3>VayalVaram Foods</h3>
+          <p>Food products from Arachalur, Erode.</p>
+        </div>
+        <div class="stall-card">
+          <span class="stall-no">Stall D3</span>
+          <h3>Creameo</h3>
+          <p>Festival treats, desserts &amp; cakes alongside kids' games and entertainment.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sponsor-cta" id="sponsors">
+    <div class="wrap sponsor-grid">
+      <div>
+        <p class="eyebrow">For brands &amp; businesses</p>
+        <h2>Grow your brand with FunFest Thiruvizha 2026</h2>
+        <p>We're looking for return gifts, gift hampers, discount vouchers, gift coupons, product samples and experience vouchers to make Funfest Thiruvizha 2026 even more memorable for participants and winners.</p>
+        <ul class="sponsor-list">
+          <li>✅ Showcase your brand at one of Erode's most anticipated family events</li>
+          <li>✅ Reach hundreds of families from Erode and nearby areas</li>
+          <li>✅ Gain visibility through event promotions and social media campaigns</li>
+          <li>✅ Build trust and goodwill within the community</li>
+          <li>✅ Put your products directly into the hands of potential customers</li>
+        </ul>
+      </div>
+      <div class="sponsor-call">
+        <p>Toy brand, bookstore, stationery shop, food business, wellness brand or local entrepreneur — let's collaborate.</p>
+        <a class="phone" href="tel:9688567676">96885 67676</a>
+        <p style="font-size:0.85rem;color:#e2ead9;">Call or WhatsApp to discuss partnership options</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="resources" id="resources">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">From the hub</p>
+        <h2>Parenting resources</h2>
+        <p>Practical guides and local expert advice, written for parents in Erode.</p>
+      </div>
+      <div class="res-grid">
+        <div class="res-card">
+          <div class="stamp">DOC</div>
+          <h3>Doctor visits &amp; advice</h3>
+          <p>Notes from our visits with local pediatricians and specialists.</p>
+        </div>
+        <div class="res-card">
+          <div class="stamp">TIP</div>
+          <h3>Everyday parenting tips</h3>
+          <p>Practical ideas for feeding, sleep, screen time and more.</p>
+        </div>
+        <div class="res-card">
+          <div class="stamp">EDU</div>
+          <h3>School &amp; admissions</h3>
+          <p>Guidance on choosing schools and navigating admissions locally.</p>
+        </div>
+        <div class="res-card">
+          <div class="stamp">FAQ</div>
+          <h3>Community Q&amp;A</h3>
+          <p>Real questions from parents, answered by the EPH community.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="journey">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Our story</p>
+        <h2>The journey so far</h2>
+        <p>EPH didn't begin with a crowd — it began with a few people who kept showing up.</p>
+      </div>
+      <div class="journey-line">
+        <div class="journey-item">
+          <span class="yr">The beginning</span>
+          <h3>A small group with a big idea</h3>
+          <p>EPH started in Erode with a simple goal: help parents support each other, with empty chairs at early events and barely any replies.</p>
+        </div>
+        <div class="journey-item">
+          <span class="yr">Year one</span>
+          <h3>First events, first friendships</h3>
+          <p>Small meetups grew into the first carnivals and talks — and the WhatsApp group started filling up with real conversations.</p>
+        </div>
+        <div class="journey-item">
+          <span class="yr">Year two</span>
+          <h3>Anniversary at Helping Hearts Trust</h3>
+          <p>A celebration marking real growth — more families, more events, and a community that finally felt like one.</p>
+        </div>
+        <div class="journey-item">
+          <span class="yr">Today</span>
+          <h3>10,000+ parents and counting</h3>
+          <p>What started with quiet effort is now a recognised local community — and it's still growing, one family at a time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="join" id="join">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Join the hub</p>
+        <h2>Be part of the community</h2>
+        <p>Connect with EPH wherever you spend time online — or send us a message directly.</p>
+      </div>
+      <div class="join-grid">
+        <div class="link-list">
+          <a class="link-card" href="https://chat.whatsapp.com/CjoH8mWIrNhL2nyDLcwsKg" target="_blank" rel="noopener">
+            <span>
+              <span class="name">WhatsApp support group</span><br>
+              <span class="desc">Ask questions, get quick answers</span>
+            </span>
+            <span class="arrow">→</span>
+          </a>
+          <a class="link-card" href="https://instagram.com/erode_parenting_hub" target="_blank" rel="noopener">
+            <span>
+              <span class="name">Instagram</span><br>
+              <span class="desc">Photos, reels &amp; updates</span>
+            </span>
+            <span class="arrow">→</span>
+          </a>
+          <a class="link-card" href="https://www.facebook.com/erodeparentinghub/" target="_blank" rel="noopener">
+            <span>
+              <span class="name">Facebook page</span><br>
+              <span class="desc">News, events &amp; announcements</span>
+            </span>
+            <span class="arrow">→</span>
+          </a>
+          <a class="link-card" href="https://www.facebook.com/groups/363598418167727/" target="_blank" rel="noopener">
+            <span>
+              <span class="name">Facebook support group</span><br>
+              <span class="desc">Community discussions</span>
+            </span>
+            <span class="arrow">→</span>
+          </a>
+        </div>
+        <div class="contact-form">
+          <h3>Send us a message</h3>
+          <form onsubmit="event.preventDefault(); this.querySelector('.form-note-status').textContent='Thanks — we\\'ll get back to you soon.';">
+            <div class="field">
+              <label for="name">Your name</label>
+              <input id="name" name="name" type="text" required>
+            </div>
+            <div class="field">
+              <label for="phone">Phone or email</label>
+              <input id="phone" name="phone" type="text" required>
+            </div>
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" required></textarea>
+            </div>
+            <button class="form-submit" type="submit">Send message</button>
+            <p class="form-note"><span class="form-note-status"></span></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-row">
+    <a href="#top" class="nav-mark">
+      <span class="stamp" style="color:var(--terracotta)">EPH<br>EST.</span>
+      Erode Parenting Hub
+    </a>
+    <span>Erode, Tamil Nadu · Built for parents, by parents</span>
+  </div>
+</footer>
+
+</body>
+</html>
